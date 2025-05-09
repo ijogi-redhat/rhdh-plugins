@@ -38,14 +38,14 @@ backend:
   #   dangerouslyDisableDefaultAuthPolicy: true
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
-integrations: {}
-#integrations:
-#  github:
-#    - host: github.com
-#      token: ${GITHUB_TOKEN}
-#  gitlab:
-#    - host: gitlab.com
-#      token: ${GITLAB_TOKEN}
+#integrations: {}
+integrations:
+  github:
+    - host: github.com
+      apiBaseUrl: https://github.com
+  gitlab:
+    - host: gitlab.com
+      apiBaseUrl: https://gitlab.com
 
 proxy:
   '/quay/api':
@@ -69,14 +69,26 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
+  session:
+    secret: '08e92bf6f459a8c16c9746fdfca7f33b1738fcc9bfc1888e9eb8f78fa7392ce3'
   # see https://backstage.io/docs/auth/ to learn about auth providers
   environment: development
   providers:
     guest: {}
     github:
       development:
-        clientId: ${AUTH_GITHUB_CLIENT_ID}
-        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        clientId: Ov23li2EjMi2PTpRYX88
+        clientSecret: 9e4de5ba069ff9e6eaf0287b1294bace04e71204
+        scopes: ['read:user', 'user:email', 'repo']
+        signIn:
+          resolvers:
+            - resolver: emailMatchingUserEntityProfileEmail
+
+    gitlab:
+      development:
+        clientId: 0ee53061603056071670f26aa09cd3f04b61a138e401285ce5343b8d91c8e394
+        clientSecret: gloas-462e668978635cfcfbae463bec55cf00803dde7dd32513f4bde170cd56d74a0d
+        scopes: ['read_user', 'read_api', 'read_repository']
         signIn:
           resolvers:
             - resolver: emailMatchingUserEntityProfileEmail

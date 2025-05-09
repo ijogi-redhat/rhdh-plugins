@@ -2,9 +2,22 @@
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: mareklibra
+  name: ijogi
 spec:
   profile:
-    displayName: Marek Libra
-    email: foo@xyzbar.cz
+    displayName: ijogi
+    email: ijogi@redhat.com
+  memberOf: []
+# GitLab user
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: ijogi-gitlab
+  annotations:
+    backstage.io/email: ishanjogi@gmail.com
+spec:
+  profile:
+    displayName: ijogi
+    email: ishanjogi@gmail.com
   memberOf: []
