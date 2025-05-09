@@ -77,8 +77,8 @@ auth:
     guest: {}
     github:
       development:
-        clientId: Ov23li2EjMi2PTpRYX88
-        clientSecret: 9e4de5ba069ff9e6eaf0287b1294bace04e71204
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
         scopes: ['read:user', 'user:email', 'repo']
         signIn:
           resolvers:
@@ -86,8 +86,8 @@ auth:
 
     gitlab:
       development:
-        clientId: 0ee53061603056071670f26aa09cd3f04b61a138e401285ce5343b8d91c8e394
-        clientSecret: gloas-462e668978635cfcfbae463bec55cf00803dde7dd32513f4bde170cd56d74a0d
+        clientId: ${AUTH_GITLAB_CLIENT_ID}
+        clientSecret: ${AUTH_GITLAB_CLIENT_SECRET}
         scopes: ['read_user', 'read_api', 'read_repository']
         signIn:
           resolvers:
